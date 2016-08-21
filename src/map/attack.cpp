@@ -397,13 +397,8 @@ void CAttack::ProcessDamage()
 		m_attacker->StatusEffectContainer->HasStatusEffect(EFFECT_FEINT))
 	{
 		m_attacker->StatusEffectContainer->DelStatusEffect(EFFECT_FEINT);
-		m_victim->StatusEffectContainer->AddStatusEffect(EFFECT_EVASION_DOWN);  /// I am doing something wrong here?
-		// 	'bool CStatusEffectContainer::AddStatusEffect(CStatusEffect *,bool)': cannot convert argument 1 from 'EFFECT' to 'CStatusEffect *
-
+		m_victim->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_EVASION_DOWN, EFFECT_EVASION_DOWN, 50, 0, 30));
 	}
-	
-	
-	
 	
 	// Sneak attack.
     if (m_attacker->GetMJob() == JOB_THF &&
