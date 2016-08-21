@@ -391,7 +391,21 @@ bool CAttack::CheckCounter()
 ************************************************************************/
 void CAttack::ProcessDamage()
 {
-    // Sneak attack.
+    // Feint. 
+	if (m_attacker->GetMJob() == JOB_THF &&
+    	m_isFirstSwing  &&
+		m_attacker->StatusEffectContainer->HasStatusEffect(EFFECT_FEINT))
+	{
+		m_attacker->StatusEffectContainer->DelStatusEffect(EFFECT_FEINT);
+		m_victim->StatusEffectContainer->AddStatusEffect(EFFECT_EVASION_DOWN);  /// I am doing something wrong here?
+		// 	'bool CStatusEffectContainer::AddStatusEffect(CStatusEffect *,bool)': cannot convert argument 1 from 'EFFECT' to 'CStatusEffect *
+
+	}
+	
+	
+	
+	
+	// Sneak attack.
     if (m_attacker->GetMJob() == JOB_THF &&
         m_isFirstSwing &&
         m_attacker->StatusEffectContainer->HasStatusEffect(EFFECT_SNEAK_ATTACK) &&
