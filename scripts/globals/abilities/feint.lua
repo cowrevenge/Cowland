@@ -1,9 +1,6 @@
 -----------------------------------
--- Ability: Trick Attack
--- Deals extra damage when striking from behind a party or alliance member.
--- Obtained: Thief Level 30
--- Recast Time: 1:00
--- Duration: 1:00
+-- Ability: Feint
+
 -----------------------------------
 
 require("scripts/globals/settings");
@@ -24,4 +21,4 @@ end;
 function onUseAbility(player,target,ability)
    player:addStatusEffect(EFFECT_FEINT,1,0,60);
 end;
---   target:addStatusEffect(EFFECT_EVASION_DOWN, 25, 0, 30);
+
